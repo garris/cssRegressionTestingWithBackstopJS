@@ -28,7 +28,7 @@ This instructional will be based on a simple demo project [download zip here](ht
 
 <h4>Expand the simple demo</h4>
 
-Begin by [downloading the "myCoolProject" example project files](http://css-tricks.com/examples/myCoolProject.zip) and install the testing framework right into here:
+Let's begin by [downloading and expanding the "myCoolProject" example project files](http://css-tricks.com/examples/myCoolProject.zip). We will install the testing framework right into this example project:
 
 ![](fig1.png)
 
@@ -169,7 +169,7 @@ This will add files to your project root – setting up folders for BackstopJS s
 
 In this configuration you can see three <code>viewports</code> objects, one for <b>phone</b>, <b>tablet vertical</b> and <b>tablet horizontal</b>, each with name and dimensions properties. You can add as many <code>viewports</code> objects as you need. <em>BackstopJS requires at least one</em>.
 
-Then we have <code>scenarios</code> which include the URLs and element selectors that BackstopJS will test. The selectors accept standard CSS selector notation. It's useful to think of every scenario object as a test for a specific static page or global app state. Add as many `scenarios` here as you need. <em>BackstopJS requires at least one</em>.
+Then we have <code>scenarios</code> which include the URLs and element selectors that BackstopJS will test. For each selector you add, BackstopJS will take a screenshot and test that area of your layout. Your selector area could be as small as a `button` or as big as the `body` of your page. Selectors accept standard CSS selector notation. It's useful to think of every scenario object as a test for a specific static page or global app state. Add as many `scenarios` here as you need. <em>BackstopJS requires at least one</em>.
 
 _You may notice that in this config, our URL is pointing to http://getbootstrap.com (the homepage of the Bootstrap design component library) – that is what we would be testing if we were to run BackstopJS now. This is here to illustrate that BackstopJS can point to local <em>or</em> remote URLs so it's easy to imagine repurposing the same tests for local development, QA, staging and production environments._
 
