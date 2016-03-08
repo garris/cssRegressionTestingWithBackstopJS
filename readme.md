@@ -6,9 +6,9 @@
 
 Do a search for CSS regression testing and a common theme becomes clear – breaking CSS is easy, testing it is hard.  This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer.
 
-Like many other web companies at the time, they were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens. 
+Like many other web companies at the time, we were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens. 
 
-I realized this would be a regression-prone job. Retrofitting multiple breakpoint behaviors would mean we would have a lot of hard-to-find display bugs. I wanted a way for our engineers to automate bug discovery _before_ slamming our QA team with hundreds of ticky-tacky little layout issues.
+I realized this would be a regression-prone job. Retrofitting multiple breakpoint behaviors would mean we would have a lot of hard-to-find display bugs. I needed a way for our engineers to automate bug discovery _before_ slamming our QA team with hundreds of ticky-tacky little layout issues.
 
 
 <h3>CSS testing options</h3>
