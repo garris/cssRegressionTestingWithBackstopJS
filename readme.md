@@ -1,28 +1,24 @@
-<em class="explanation">The following is a guest post by <a href="http://expanded.me/">Garris Shipon</a>. We've touched on <a href="http://css-tricks.com/automatic-css-testing/">the four types of CSS testing</a> here before. Regression testing is the hardest. It's the type where you're trying to test if a change you made to CSS resulted in any unexpected visual problems. This is made more difficult with responsive designs. Garris built a tool for doing this as he embarked upon a new responsive design for a large scale site. Here, he'll walk you through the whole thing.</em>
+<h3>A use-case for visual regression testing</h3>
 
-<!--more-->
+Do a search for "CSS regression testing" and a common theme becomes clear – breaking CSS is easy, testing it is hard.
 
-<h3>Why CSS testing?</h3>
+This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer. Like many other web companies at the time, we were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens. 
 
-Do a search for CSS regression testing and a common theme becomes clear – breaking CSS is easy, testing it is hard.  This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer.
-
-Like many other web companies at the time, we were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens. 
-
-I realized this would be a regression-prone job. Retrofitting multiple breakpoint behaviors would mean we would have a lot of hard-to-find display bugs. I needed a way for our engineers to automate bug discovery _before_ slamming our QA team with hundreds of ticky-tacky little layout issues.
+I realized this would be a regression-prone job. Retrofitting multiple breakpoint behaviors meant we would likely have a lot of hard-to-find display bugs. I needed a way for our engineers to automate bug discovery _before_ slamming our QA team with hundreds of ticky-tacky little layout issues.
 
 
-<h3>CSS testing options</h3>
+<h3>Where BackstopJS fits in</h3>
 
-The solution I wanted would specifically target web-developers, would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout. 
+The solution I wanted had to play nice with web-developers, that is, it would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout. 
 
-At the time, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
+_At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
 
-BackstopJS is a solution built on top of Gulp and PhantomJS which wraps <a href="http://huddle.github.io/Resemble.js/">ResembleJS</a> (written by <a href="https://github.com/jamescryer">James Cryer</a>) in an _easy-to-configure_ visual regression test matrix across multiple URLs, page elements and screen sizes.
+BackstopJS is a visual regression testing app which wraps <a href="http://huddle.github.io/Resemble.js/">ResembleJS</a> (written by <a href="https://github.com/jamescryer">James Cryer</a>) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
 
 The following is a 15 minute walk-through of an installation and initial configuration of BackstopJS.
 
 
-<h3>Installation</h3>
+<h3>A visual regression-test tutorial</h3>
 
 This instructional will be based on a simple demo project [download zip here](http://css-tricks.com/examples/myCoolProject.zip), which is taken directly from the Bootstrap [example page](http://getbootstrap.com/getting-started/#examples).
 
@@ -98,7 +94,7 @@ $ casperjs --version
 
 If you have made it this far then you have some badass CSS regression testing ingredients. Lets try some basic testing.
 
-<h4>Generate a BackstopJS configuration template</h4>
+<h4>Generating a BackstopJS configuration template</h4>
 
 The basic configuration process is straight forward from here – to help with things, BackstopJS can generate a config file that you can modify for your project. From the `myCoolProject/node_modules/backstopjs/` directory:
 
@@ -169,13 +165,15 @@ This will add files to your project root – setting up folders for BackstopJS s
 
 In this configuration you can see three <code>viewports</code> objects, one for <b>phone</b>, <b>tablet vertical</b> and <b>tablet horizontal</b>, each with name and dimensions properties. You can add as many <code>viewports</code> objects as you need. <em>BackstopJS requires at least one</em>.
 
-Then we have <code>scenarios</code> which include the URLs and element selectors that BackstopJS will test. For each selector you add, BackstopJS will take a screenshot and test that area of your layout. Your selector area could be as small as a `button` or as big as the `body` of your page. Selectors accept standard CSS selector notation. It's useful to think of every scenario object as a test for a specific static page or global app state. Add as many `scenarios` here as you need. <em>BackstopJS requires at least one</em>.
+Then we have <code>scenarios</code> which include the URLs and element selectors that BackstopJS will test. It's useful to think of every scenario object as a test for a specific static page or global app state. Add as many `scenarios` here as you need. <em>BackstopJS requires at least one</em>.
 
-_You may notice that in this config, our URL is pointing to http://getbootstrap.com (the homepage of the Bootstrap design component library) – that is what we would be testing if we were to run BackstopJS now. This is here to illustrate that BackstopJS can point to local <em>or</em> remote URLs so it's easy to imagine repurposing the same tests for local development, QA, staging and production environments._
+Inside each scenario is a list of selectors. Selectors accept standard CSS notation. For each selector you specify, BackstopJS will take a screenshot and test that area of your layout.  Your selector area could be as small as a `button` or as big as the `body` of your page -- [check the documentation for more on using this feature with dynamic web apps](https://github.com/garris/BackstopJS#dealing-with-dynamic-content).
 
-<h4>Modify the configuration template</h4>
+_You may notice that in the config we just generated, our URL is pointing to http://getbootstrap.com (the homepage of the Bootstrap design component library) – that is what we would be testing if we were to run BackstopJS now. This is here to illustrate that BackstopJS can point to local <em>or</em> remote URLs so it's easy to imagine repurposing the same tests for local development, QA, staging and production environments._
 
-For *our* demo, make the following change and replace the <code>scenarios</code> node in `myCoolProject/backstop.json`.
+<h4>Modifying the configuration template</h4>
+
+For *our* demo, make the following change and replace the `scenarios` node in `myCoolProject/backstop.json`.
 
 ```json
 "scenarios": [
@@ -202,7 +200,7 @@ For *our* demo, make the following change and replace the <code>scenarios</code>
 
 ```
 
-<h4>generating (or updating) reference screenshots</h4>
+<h4>Generating reference screenshots</h4>
 
 From the `myCoolProject/node_modules/backstopjs/` directory:
 
@@ -255,16 +253,16 @@ Our visual diff contains the reference capture, the most recent test capture and
 
 <h4>And there you have it – regression found!</h4>
 
-This is a very simple example. In real life, designers and engineers may find themselves working on very complex responsive layouts. That is when a system like this really delivers value. By automating the repetitive tasks we can move our CSS projects forward by focusing on more complex and creative tasks that can't be automated.
+This is of course, a very simple example. In real life, designers and engineers may find themselves working on very large and or complex CSS projects. That is when a system like this really improves the quality and consistency of our work. By automating the repetitive visual tasks we can confidentally pursue more creative ones.
 
-Since originally releasing BackstopJS in 2014 there have been loads of new features developed by the community. Here are a list of features and capabilities that will likely be the topic of future tutorial posts...
+<h4>Next steps</h4>
 
+Since first releasing in 2014, BackstopJS has grown substantially. There are loads of newly added features developed by the community including...
 
-- CLI multiple config files and is now able to be used as part of a CI pipeline
-- Slimer option
-- SPA web-app compatibility -- trigger screenshots when web-apps are ready (e.g. after Ajax call responses, animated transitions or after any other async process)
-- Resource file locations are configureable so screenshots can be captured by your source control.
-
+- **SPA testing support** Use casper scripts and explicit web-app triggers to ensure screenshots are captured at the correct time inside your web-app (e.g. after API responses, after CSS animation competion, or wait for any other watchable async process).
+- **Simulating user interacitons** Use casper scripting inside your scenarios to simulate interacions with your on-screen components.
+- **CI pipeline integration** BackstopJS CLI features have enabled advanced users to make visual regression testing a part of their continus integration process.
+- **Active configuration files** Enables active (node module) logic inside your config files – change testing behaivor based on enviornment or other conditions, point to different config files to use your BackstopJS instance as a centralized test server for multiple enviornments, verticals, profiles, projects or whatever. 
 
 <h3>More Info</h3>
 
