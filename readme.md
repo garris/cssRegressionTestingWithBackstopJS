@@ -107,7 +107,7 @@ $ gulp genConfig
 ```
 
 
-This will add files to your project root – setting up folders for BackstopJS screenshots and generating a boilerplate configuration file.  
+This will add files to your project root – setting up folders for BackstopJS screenshots `backstop_data` and generating a boilerplate configuration file `backstop.json` .  
 
 ![](fig3.png)
 
