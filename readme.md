@@ -274,7 +274,11 @@ Our visual diff contains the reference capture, the most recent test capture and
 
 This is of course, a very simple example. In real life, designers and engineers may find themselves working on very large and or complex CSS projects. That is when a system like this really improves the quality and consistency of our work. By automating the repetitive visual tasks we can confidentally pursue more creative ones.
 
-<h4>Next steps</h4>
+<h4>About workflow</h4>
+
+There are many ways to integrate this kind of test into your workflow – you could fire off tests every time you build or you could manually run tests (as you work or just before pushing to your next stage). You could even integrate BackstopJS into your CI pipeline if that's your thing.  All of these topics are outside the scope of this article – check the documentation for more info. 
+
+<h3>Next steps</h3>
 
 Since first releasing in 2014, BackstopJS has grown substantially. There are loads of newly added features developed by the community including...
 
@@ -283,8 +287,7 @@ Since first releasing in 2014, BackstopJS has grown substantially. There are loa
 - **CI pipeline integration** BackstopJS CLI features have enabled advanced users to make visual regression testing a part of their continus integration process.
 - **Active configuration files** Enables active (node module) logic inside your config files – change testing behaivor based on enviornment or other conditions, point to different config files to use your BackstopJS instance as a centralized test server for multiple enviornments, verticals, profiles, projects or whatever. 
 
-<h3>More Info</h3>
-
+### You can get BackstopJS on Github
 <ul>
   <li><a href="http://BackstopJS.org/">BackstopJS.org</a></li>
   <li>File bugs, get troubleshooting help, learn about advanced features and contribute <a href="https://github.com/garris/BackstopJS">on GitHub</a>!</li>
