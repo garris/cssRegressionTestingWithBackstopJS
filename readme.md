@@ -175,8 +175,6 @@ Inside each scenario is a list of selectors. Selectors accept standard CSS notat
 _You may notice that in the config we just generated, our URL is pointing to http://getbootstrap.com (the homepage of the Bootstrap design component library) – that is what we would be testing if we were to run BackstopJS now. This is here to illustrate that BackstopJS can point to local <em>or</em> remote URLs so it's easy to imagine repurposing the same tests for local development, QA, staging and production environments._
 
 <h4>Modifying the configuration template</h4>
-Again here is what you'll see if you open up `myCoolProject/index.html` in a web browser – notice the margin around the text...
-![](fig7.png)
 
 For *our* demo, make the following change and replace the `scenarios` node in `myCoolProject/backstop.json`.
 
@@ -236,6 +234,9 @@ In this instance, since we haven't made any changes to our test page, BackstopJS
 
 <h4>Updating our index file and running our second test</h4>
 
+Again, here is what you'll see if you open up `myCoolProject/index.html` in a web browser – notice the margin around the text...
+![](fig8.png)
+
 Now, lets mess that up! Open our test file at `myCoolProject/index.html` and inset the following code just before the closing `</head>` tag in the markup:
 
 ```
@@ -247,7 +248,7 @@ Now, lets mess that up! Open our test file at `myCoolProject/index.html` and ins
 ```
 
 And heres what our screen looks like now...
-![](fig8.png)
+![](fig9.png)
 
 _This is exactly the kind of thing that happens all the time during web development.  Some unscoped code gets in and hoses your layout just enough that you might not notice :(_
 
