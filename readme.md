@@ -28,6 +28,9 @@ Let's begin by [downloading and expanding the "myCoolProject" example project fi
 
 ![](fig1.png)
 
+Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
+![](fig7.png)
+
 <h4>Install BackstopJS with NPM</h4>
 
 Go to your project root, in this case `/myCoolProject/` and run...
@@ -230,9 +233,6 @@ Once the test images are generated, BackstopJS will open your web browser and di
 In this instance, since we haven't made any changes to our test page, BackstopJS should show all of our tests as passing. Now, let's try changing our CSS and see what happens.
 
 <h4>Updating our index file and running our second test</h4>
-
-Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
-![](fig7.png)
 
 Now, lets mess that up! Open our test file at `myCoolProject/index.html` and inset the following code just before the closing `</head>` tag in the markup:
 
