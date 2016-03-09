@@ -268,7 +268,7 @@ Our test should run again and errors should be found, scroll the report down to 
 
 Our visual diff contains the reference capture, the most recent test capture and the visual diff file.
 
-![](fig9.png)
+![](fig7.png)
 
 <h4>And there you have it – regression found!</h4>
 
