@@ -13,7 +13,7 @@ The solution I wanted had to play nice with web-developers, that is, it would be
 
 _At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
 
-BackstopJS is a visual regression testing app which wraps [PhantomJS](http://phantomjs.org) and [ResembleJS](http://huddle.github.io/Resemble.js/) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
+BackstopJS is a visual regression testing app which wraps [CasperJS](http://casperjs.org), [PhantomJS](http://phantomjs.org) and [ResembleJS](http://huddle.github.io/Resemble.js/) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
 
 The following is a 15 minute walk-through of an installation and initial configuration of BackstopJS.
 
