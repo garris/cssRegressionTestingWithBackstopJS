@@ -1,7 +1,3 @@
-<em class="explanation">The following is a guest post by <a href="http://expanded.me/">Garris Shipon</a>. We've touched on <a href="http://css-tricks.com/automatic-css-testing/">the four types of CSS testing</a> here before. Regression testing is the hardest. It's the type where you're trying to test if a change you made to CSS resulted in any unexpected visual problems. This is made more difficult with responsive designs. Garris built a tool for doing this as he embarked upon a new responsive design for a large scale site. Here, he'll walk you through the whole thing.</em>
-
-<!--more-->
-
 <h3>Why CSS testing?</h3>
 
 Do a search for CSS regression testing and a common theme becomes clear – breaking CSS is easy, testing it is hard.  This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer.
