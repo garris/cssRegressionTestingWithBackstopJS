@@ -13,7 +13,7 @@ The solution I wanted had to play nice with web-developers, that is, it would be
 
 _At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
 
-BackstopJS is a visual regression testing app which wraps <a href="http://huddle.github.io/Resemble.js/">ResembleJS</a> (written by <a href="https://github.com/jamescryer">James Cryer</a>) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
+BackstopJS is a visual regression testing app which wraps [PhantomJS](http://phantomjs.org) and [ResembleJS](http://huddle.github.io/Resemble.js/) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
 
 The following is a 15 minute walk-through of an installation and initial configuration of BackstopJS.
 
@@ -30,7 +30,7 @@ Let's begin by [downloading and expanding the "myCoolProject" example project fi
 
 <h4>Install BackstopJS with NPM</h4>
 
-Go to your project root, in this case: myCoolProject
+Go to your project root, in this case `/myCoolProject/` and run...
 
 ```
 $ cd ~/path-to-myProjects/myCoolProject
@@ -47,7 +47,7 @@ So far so good, you now have BackstopJS scaffolding, but there are some super us
 
 <strong>If you don't already have a global Gulp instance...</strong>
 
-<a href="http://gulpjs.com">Gulp</a> is a system for enabling various task automation. It's great  for project building, asset minification, CSS preprocessing etc. 
+...then you'll want this. <a href="http://gulpjs.com">Gulp</a> is a system for enabling various task automation. It's useful for project building, asset minification, CSS preprocessing etc.  It's similar to Grunt in what it does, but it's functional pardigm is nice to work with.  _If Grunt is really your thing check out the handy grunt-backstop plugin on Github!_
 
 ```
 $ sudo npm install gulp -g
@@ -62,7 +62,7 @@ $ gulp -v
 
 <strong>If you don't already have a global PhantomJS install...</strong>
 
-Well then, this is your lucky day! <a href="http://phantomjs.org/download.html">PhantomJS</a> is a headless web browser. It does everything a web browser does, except display content to the screen.
+...then, this is your lucky day! <a href="http://phantomjs.org/download.html">PhantomJS</a> is a headless web browser. It does everything a web browser does, except display content to the screen.
 
 ```
 $ sudo npm install phantomjs
@@ -77,7 +77,7 @@ $ phantomjs -v
 
 <strong>If you don't already have a global CasperJS install...</strong>
 
-Then don't miss this. <a href="http://casperjs.org/">CasperJS</a> (<a href="http://docs.casperjs.org/en/latest/installation.html">installation docs</a>) does for headless web clients what jQuery did for DOM selection.
+...then don't miss this. <a href="http://casperjs.org/">CasperJS</a> (<a href="http://docs.casperjs.org/en/latest/installation.html">installation docs</a>) does for headless web clients what jQuery did for DOM selection.
 
 ```
 $ sudo npm install -g casperjs
@@ -96,7 +96,7 @@ If you have made it this far then you have some badass CSS regression testing in
 
 <h4>Generating a BackstopJS configuration template</h4>
 
-The basic configuration process is straight forward from here – to help with things, BackstopJS can generate a config file that you can modify for your project. From the `myCoolProject/node_modules/backstopjs/` directory:
+The basic configuration process is straight forward from here – to help with things, BackstopJS can generate a config file that you can modify for your project. From the `myCoolProject/node_modules/backstopjs/` directory run...
 
 ```
 $ cd ~/path-to-myProjects/myCoolProject/node_modules/backstopjs/
@@ -202,7 +202,7 @@ For *our* demo, make the following change and replace the `scenarios` node in `m
 
 <h4>Generating reference screenshots</h4>
 
-From the `myCoolProject/node_modules/backstopjs/` directory:
+From the `myCoolProject/node_modules/backstopjs/` directory run...
 
 <pre><code>$ gulp reference</code></pre>
 
@@ -217,7 +217,7 @@ So far so good, we have our reference set. Now lets run a test!
 
 We are about to run our first test.  **But keep in mind, we haven't changed anything in our CSS yet, so our tests should pass!**
 
-From the `myCoolProject/node_modules/backstopjs/` directory:
+From the `myCoolProject/node_modules/backstopjs/` directory run...
 
 <pre><code>$ gulp test</code></pre>
 
@@ -231,7 +231,10 @@ In this instance, since we haven't made any changes to our test page, BackstopJS
 
 <h4>Updating our index file and running our second test</h4>
 
-Open our test file at `myCoolProject/index.html` and inset the following code just before the closing `</head>` tag in the markup:
+Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
+![](fig7.png)
+
+Now, lets mess that up! Open our test file at `myCoolProject/index.html` and inset the following code just before the closing `</head>` tag in the markup:
 
 ```
 <style>
@@ -241,9 +244,16 @@ Open our test file at `myCoolProject/index.html` and inset the following code ju
 </style>
 ```
 
+And heres what our screen looks like now...
+![](fig8.png)
+
+_This is exactly the kind of thing that happens all the time during web development.  Some unscoped code gets in and hoses your layout just enough that you might not notice :(_
+
 Now, From the `myCoolProject/node_modules/backstopjs/` directory run...
 
-`$ gulp test`
+```
+$ gulp test
+```
 
 Our test should run again and errors should be found, scroll the report down to see a visual diff of the issues we've just created...
 
