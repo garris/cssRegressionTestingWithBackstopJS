@@ -7,11 +7,11 @@ I realized this would be a regression-prone job. Retrofitting multiple breakpoin
 
 <h3>CSS testing options</h3>
 
-The solution I wanted would specifically target web-developers, would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout. 
+The solution I wanted had to play nice with web-developers, that is, it would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout. 
 
-At the time, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
+_At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
 
-BackstopJS is a solution built on top of Gulp and PhantomJS which wraps <a href="http://huddle.github.io/Resemble.js/">ResembleJS</a> (written by <a href="https://github.com/jamescryer">James Cryer</a>) in an _easy-to-configure_ visual regression test matrix across multiple URLs, page elements and screen sizes.
+BackstopJS is a visual regression testing app which wraps <a href="http://huddle.github.io/Resemble.js/">ResembleJS</a> (written by <a href="https://github.com/jamescryer">James Cryer</a>) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
 
 The following is a 15 minute walk-through of an installation and initial configuration of BackstopJS.
 
