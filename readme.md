@@ -29,7 +29,7 @@ Let's begin by [downloading and expanding the "myCoolProject" example project fi
 ![](fig1.png)
 
 Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
-![](fig7.png)
+![](fig10.png)
 
 <h4>Install BackstopJS with NPM</h4>
 
@@ -175,6 +175,8 @@ Inside each scenario is a list of selectors. Selectors accept standard CSS notat
 _You may notice that in the config we just generated, our URL is pointing to http://getbootstrap.com (the homepage of the Bootstrap design component library) – that is what we would be testing if we were to run BackstopJS now. This is here to illustrate that BackstopJS can point to local <em>or</em> remote URLs so it's easy to imagine repurposing the same tests for local development, QA, staging and production environments._
 
 <h4>Modifying the configuration template</h4>
+Again here is what you'll see if you open up `myCoolProject/index.html` in a web browser – notice the margin around the text...
+![](fig7.png)
 
 For *our* demo, make the following change and replace the `scenarios` node in `myCoolProject/backstop.json`.
 
@@ -260,6 +262,7 @@ Our test should run again and errors should be found, scroll the report down to 
 ![](fig6.png)
 
 Our visual diff contains the reference capture, the most recent test capture and the visual diff file.
+![](fig9.png)
 
 <h4>And there you have it – regression found!</h4>
 
