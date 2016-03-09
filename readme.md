@@ -29,6 +29,7 @@ Let's begin by [downloading and expanding the "myCoolProject" example project fi
 ![](fig1.png)
 
 Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
+
 ![](fig10.png)
 
 <h4>Install BackstopJS with NPM</h4>
@@ -41,6 +42,7 @@ $ npm install backstopjs
 ```
 
 Your directory should now look like this:
+
 
 ![](fig2.png)
 
@@ -235,6 +237,7 @@ In this instance, since we haven't made any changes to our test page, BackstopJS
 <h4>Updating our index file and running our second test</h4>
 
 Again, here is what you'll see if you open up `myCoolProject/index.html` in a web browser – notice the margin around the text...
+
 ![](fig8.png)
 
 Now, lets mess that up! Open our test file at `myCoolProject/index.html` and inset the following code just before the closing `</head>` tag in the markup:
@@ -248,6 +251,7 @@ Now, lets mess that up! Open our test file at `myCoolProject/index.html` and ins
 ```
 
 And heres what our screen looks like now...
+
 ![](fig9.png)
 
 _This is exactly the kind of thing that happens all the time during web development.  Some unscoped code gets in and hoses your layout just enough that you might not notice :(_
@@ -263,6 +267,7 @@ Our test should run again and errors should be found, scroll the report down to 
 ![](fig6.png)
 
 Our visual diff contains the reference capture, the most recent test capture and the visual diff file.
+
 ![](fig9.png)
 
 <h4>And there you have it – regression found!</h4>
