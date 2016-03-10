@@ -241,8 +241,8 @@ Since first releasing in 2014, BackstopJS has grown substantially. There are loa
 - **CI pipeline integration** BackstopJS CLI features have enabled advanced users to make visual regression testing a part of their continus integration process.
 - **Active configuration files** Enables active (node module) logic inside your config files – change testing behaivor based on enviornment or other conditions, point to different config files to use your BackstopJS instance as a centralized test server for multiple enviornments, verticals, profiles, projects or whatever.
 
-### You can get BackstopJS on Github
+### More on BackstopJS
 <ul>
   <li><a href="http://BackstopJS.org/">BackstopJS.org</a></li>
-  <li>File bugs, get troubleshooting help, learn about advanced features and contribute <a href="https://github.com/garris/BackstopJS">on GitHub</a>!</li>
+  <li>Find documentation, file bugs, get troubleshooting help, learn about advanced features and contribute <a href="https://github.com/garris/BackstopJS">on GitHub</a>!</li>
 </ul>
