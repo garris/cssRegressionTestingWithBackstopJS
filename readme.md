@@ -34,7 +34,9 @@ Here is what you'll see if you open up `myCoolProject/index.html` in a web brows
 
 <h4>Install BackstopJS with NPM</h4>
 
-Go to your project root, in this case `/myCoolProject/` and run...
+_The rest of this tutorial will require the very awesome Node.js environment and it's integrated package manager NPM. If you don't have Node and NPM installed you can [get it here!](https://nodejs.org/)_
+
+Now go to your project root, in this case `/myCoolProject/` and run...
 
 ```
 $ cd ~/path-to-myProjects/myCoolProject
