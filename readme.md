@@ -2,16 +2,16 @@
 
 Do a search for "CSS regression testing" and a common theme becomes clear – breaking CSS is easy, testing it is hard.
 
-This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer. Like many other web companies at the time, we were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens. 
+This was the case at the onset of a responsive CSS refactoring project I scoped for a large online retailer. Like many other web companies at the time, we were in the process of adding responsive behavior to a massive e-commerce web app, which was originally designed for 1024px desktop screens.
 
 I realized this would be a regression-prone job. Retrofitting multiple breakpoint behaviors meant we would likely have a lot of hard-to-find display bugs. I needed a way for our engineers to automate bug discovery _before_ slamming our QA team with hundreds of ticky-tacky little layout issues.
 
 
 <h3>Where BackstopJS fits in</h3>
 
-The solution I wanted had to play nice with web-developers, that is, it would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout. 
+The solution I wanted had to play nice with web-developers, that is, it would be easy to install locally, use familiar web-dev paradigms and give a reasonable amount of confidence that a selector change made for mobile isn't going to result in a hard-to-find bug in a desktop layout.
 
-_At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>. 
+_At the time_, there wasn't anything out of-the-box that quite fit the bill. This was the reason for creating <a href="http://backstopjs.org/">BackstopJS</a>.
 
 BackstopJS is a visual regression testing app which wraps [CasperJS](http://casperjs.org), [PhantomJS](http://phantomjs.org) and [ResembleJS](http://huddle.github.io/Resemble.js/) in an _easy-to-configure_ test matrix across multiple app-states (URLs), DOM elements and screen sizes.
 
@@ -28,7 +28,7 @@ Let's begin by [downloading and expanding the "myCoolProject" example project fi
 
 ![](fig1.png)
 
-Here is what you'll see if you open up `myCoolProject/index.html` in a web browser...
+Here is what you'll see if you open up `myCoolProject/index.html` in a web browser... _Remember, it's responsive. So, make sure to resize the browser window down to see the most narrow layout!_
 
 ![](fig10.png)
 
@@ -46,58 +46,10 @@ Your directory should now look like this:
 
 ![](fig2.png)
 
-<h4>Install dependencies</h4>
-
-So far so good, you now have BackstopJS scaffolding, but there are some super useful packages that BackstopJS requires so let's make sure we have those.
-
-<strong>If you don't already have a global Gulp instance...</strong>
-
-...then you'll want this. <a href="http://gulpjs.com">Gulp</a> is a system for enabling various task automation. It's useful for project building, asset minification, CSS preprocessing etc.  It's similar to Grunt in what it does, but it's functional pardigm is nice to work with.  _If Grunt is really your thing check out the handy grunt-backstop plugin on Github!_
-
-```
-$ sudo npm install gulp -g
-```
-test for a correct install with...
-
-```
-$ gulp -v
-> CLI version 3.8.10
-> Local version 3.8.10
-```
-
-<strong>If you don't already have a global PhantomJS install...</strong>
-
-...then, this is your lucky day! <a href="http://phantomjs.org/download.html">PhantomJS</a> is a headless web browser. It does everything a web browser does, except display content to the screen.
-
-```
-$ sudo npm install phantomjs
-```
-
-test for a correct install with...
-
-```
-$ phantomjs -v
-> 1.9.8 
-```
-
-<strong>If you don't already have a global CasperJS install...</strong>
-
-...then don't miss this. <a href="http://casperjs.org/">CasperJS</a> (<a href="http://docs.casperjs.org/en/latest/installation.html">installation docs</a>) does for headless web clients what jQuery did for DOM selection.
-
-```
-$ sudo npm install -g casperjs
-```
-
-test for a correct install with...
-
-```
-$ casperjs --version
-> 1.1.0-beta3
-```
 
 <strong>Install complete!</strong>
 
-If you have made it this far then you have some badass CSS regression testing ingredients. Lets try some basic testing.
+Now lets get to some basic testing...
 
 <h4>Generating a BackstopJS configuration template</h4>
 
@@ -105,11 +57,11 @@ The basic configuration process is straight forward from here – to help with t
 
 ```
 $ cd ~/path-to-myProjects/myCoolProject/node_modules/backstopjs/
-$ gulp genConfig
+$ npm run genConfig
 ```
 
 
-This will add files to your project root – setting up folders for BackstopJS screenshots `backstop_data` and generating a boilerplate configuration file `backstop.json` .  
+This will add files to your project root – setting up folders for BackstopJS screenshots `backstop_data` and generating a boilerplate configuration file `backstop.json` .
 
 ![](fig3.png)
 
@@ -209,7 +161,7 @@ For *our* demo, make the following change and replace the `scenarios` node in `m
 
 From the `myCoolProject/node_modules/backstopjs/` directory run...
 
-<pre><code>$ gulp reference</code></pre>
+<pre><code>$ npm run reference</code></pre>
 
 This task will create (or update an existing) screen captures representing all specified selectors at every breakpoint. When the process is complete, take a look inside `/myCoolProject/backstop_data/bitmaps_reference/`:
 
@@ -224,11 +176,11 @@ We are about to run our first test.  **But keep in mind, we haven't changed anyt
 
 From the `myCoolProject/node_modules/backstopjs/` directory run...
 
-<pre><code>$ gulp test</code></pre>
+<pre><code>$ npm run test</code></pre>
 
-This task will create a new, timestamped-directory of test images inside `/myCoolProject/backstop_data/bitmaps_test/<timestamp>/`.  
+This task will create a new, timestamped-directory of test images inside `/myCoolProject/backstop_data/bitmaps_test/<timestamp>/`.
 
-Once the test images are generated, BackstopJS will open your web browser and display a report comparing the most recent test bitmaps against the current reference images. Significant differences (if any) are detected and shown. 
+Once the test images are generated, BackstopJS will open your web browser and display a report comparing the most recent test bitmaps against the current reference images. Significant differences (if any) are detected and shown.
 
 ![](fig5.png)
 
@@ -259,7 +211,7 @@ _This is exactly the kind of thing that happens all the time during web developm
 Now, From the `myCoolProject/node_modules/backstopjs/` directory run...
 
 ```
-$ gulp test
+$ npm run test
 ```
 
 Our test should run again and errors should be found, scroll the report down to see a visual diff of the issues we've just created...
@@ -276,7 +228,7 @@ This is of course, a very simple example. In real life, designers and engineers 
 
 <h4>About workflow</h4>
 
-There are many ways to integrate this kind of test into your workflow – you could fire off tests every time you build or you could manually run tests (as you work or just before pushing to your next stage). You could even integrate BackstopJS into your CI pipeline if that's your thing.  All of these topics are outside the scope of this article – check the documentation for more info. 
+There are many ways to integrate this kind of test into your workflow – you could fire off tests every time you build or you could manually run tests (as you work or just before pushing to your next stage). You could even integrate BackstopJS into your CI pipeline if that's your thing.  All of these topics are outside the scope of this article – check the documentation for more info.
 
 <h3>Next steps</h3>
 
@@ -285,7 +237,7 @@ Since first releasing in 2014, BackstopJS has grown substantially. There are loa
 - **SPA testing support** Use casper scripts and explicit web-app triggers to ensure screenshots are captured at the correct time inside your web-app (e.g. after API responses, after CSS animation competion, or wait for any other watchable async process).
 - **Simulating user interacitons** Use casper scripting inside your scenarios to simulate interacions with your on-screen components.
 - **CI pipeline integration** BackstopJS CLI features have enabled advanced users to make visual regression testing a part of their continus integration process.
-- **Active configuration files** Enables active (node module) logic inside your config files – change testing behaivor based on enviornment or other conditions, point to different config files to use your BackstopJS instance as a centralized test server for multiple enviornments, verticals, profiles, projects or whatever. 
+- **Active configuration files** Enables active (node module) logic inside your config files – change testing behaivor based on enviornment or other conditions, point to different config files to use your BackstopJS instance as a centralized test server for multiple enviornments, verticals, profiles, projects or whatever.
 
 ### You can get BackstopJS on Github
 <ul>
